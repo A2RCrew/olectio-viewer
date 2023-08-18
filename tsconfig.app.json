@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es3",
+    "lib": [
+      "DOM",
+      "ES2020"
+    ],
+    "module": "commonjs",
+    "outDir": "./dist",
+    "rootDir": "src",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "strict": true,
+  },
+  "exclude": [
+    "dist",
+    "tests/**/*.ts"
+  ]
+}

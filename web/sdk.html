@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
+    />
+    <style>
+      #testing-buttons-panel {
+        display: none;
+      }
+    </style>
+    <title>Olectio Testing Viewer Acuario (EPUB Flow)</title>
+    <meta name="description" content="Viewer used by to test the acuario content" />
+    <link rel="preload" as="style" href="/css/readium.css/>
+    <link rel="stylesheet" type="text/css" href="/css/readium.css" />
+    <link rel="preload" as="style" href="/css/olectio-viewer.css" />
+    <link rel="stylesheet" type="text/css" href="/css/olectio-viewer.css" />
+    <link rel="preload" as="style" href="/css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="/css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="/css/olectio-testing-ui.css" />
+    <script src="/js/olectio-test-api.js"></script>
+    <script src="/js/olectio-viewer.js"></script>
+  </head>
+
+  <body></body>
+  <script type="text/javascript">
+    window.olectioApi = window.olectioViewer({
+      layoutType: 'flow',
+      eventHandler: window.olectioEventHandler,
+      slug: 'acuario',
+      contentSlug: '50',
+      initialFontSize: 16,
+      initialFontFamily: 'Obf-Helvetica',
+      availableFontFamilies: [
+        'Obf-Helvetica',
+        'Obf-OpenDyslexic',
+        'Obf-AmericanTypewriter',
+        'Obf-RobotoSlab',
+        'Obf-Baskerville',
+        'Obf-Tahoma',
+        'Obf-TimesNewRoman',
+      ],
+      readModeMargin: {
+        top: 0,
+        left: 0,
+        bottom: 0,
+        right: 0,
+      },
+      uiModeMargin: {
+        top: 5,
+        left: 20,
+        bottom: 20,
+        right: 10,
+      },
+      toggleReadModeOnClick: true,
+    });
+    window.olectioSetDispatcher(window.olectioApi.dispatch);
+    window.olectioSetState(window.olectioApi.state);
+  </script>
+</html>

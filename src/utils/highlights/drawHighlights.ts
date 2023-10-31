@@ -30,7 +30,7 @@ const drawHighlights = (
   for (let i = 0; i < resultRects.length; i++) {
     const rect = resultRects[i];
     const highlight = document.createElement('div');
-    highlight.classList.add('rg-highlight');
+    highlight.classList.add('olectio-highlight');
     const zoomPanelCoordinates = clientToContentWrapperCoordinates({
       x: rect.left,
       y: rect.top,

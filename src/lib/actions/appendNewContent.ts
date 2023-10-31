@@ -173,12 +173,12 @@ const appendNewContent: ActionDispatcher<AppendNewContent> = async ({ state, act
       const { container } = content;
       content.html = action.htmlContent;
       content.cssURL = action.cssURL;
-      container.classList.add('rg-loading');
+      container.classList.add('olectio-loading');
       container.innerHTML = action.htmlContent;
 
       setTimeout(() => {
         const done = (): void => {
-          container.classList.remove('rg-loading');
+          container.classList.remove('olectio-loading');
           setCSSProperty('viewer-margin-top', '0');
           handleAnchors(container, state);
           const finalPartialState: Partial<State> = {

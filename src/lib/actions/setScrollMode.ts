@@ -22,8 +22,8 @@ const setScrollMode: ActionDispatcher<SetScrollMode> = async ({ state, action })
       setCSSProperty('viewer-margin-top', '200vh');
       removeUserHighlights(state);
       clean(state);
-      document.body.classList.remove(`rg-${state.scrollMode}-scroll`);
-      document.body.classList.add(`rg-${scrollMode}-scroll`);
+      document.body.classList.remove(`olectio-${state.scrollMode}-scroll`);
+      document.body.classList.add(`olectio-${scrollMode}-scroll`);
       updateState({ scrollMode });
       recalculate(state)
         .then(async (recalculateUpdate): Promise<void> => {

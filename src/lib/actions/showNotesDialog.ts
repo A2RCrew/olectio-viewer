@@ -39,17 +39,17 @@ const showNotesDialog: ActionDispatcher<ShowNotesDialog> = async ({ action, stat
     menu.onmousedown = onMouseDown;
     menu.ontouchstart = onMouseDown;
     menu.onclick = onMouseDown;
-    menu.classList.add('rg-notes-dialog');
-    menu.classList.add(`rg-${arrowDown ? 'bottom' : 'top'}-arrow`);
+    menu.classList.add('olectio-notes-dialog');
+    menu.classList.add(`olectio-${arrowDown ? 'bottom' : 'top'}-arrow`);
     menu.style.top = `${top}px`;
     menu.style.left = `${left}px`;
 
     const wrapper = document.createElement('div');
-    wrapper.classList.add('rg-notes-dialog-wrapper');
+    wrapper.classList.add('olectio-notes-dialog-wrapper');
     menu.appendChild(wrapper);
 
     const holder = document.createElement('div');
-    holder.classList.add('rg-notes-dialog-holder');
+    holder.classList.add('olectio-notes-dialog-holder');
     wrapper.appendChild(holder);
 
     const form = document.createElement('form');
@@ -66,57 +66,57 @@ const showNotesDialog: ActionDispatcher<ShowNotesDialog> = async ({ action, stat
     form.appendChild(fieldset);
 
     const header = document.createElement('div');
-    header.classList.add('rg-notes-dialog-header');
+    header.classList.add('olectio-notes-dialog-header');
     fieldset.appendChild(header);
 
     const headerTitle = document.createElement('div');
-    headerTitle.classList.add('rg-notes-dialog-header-title');
+    headerTitle.classList.add('olectio-notes-dialog-header-title');
     header.appendChild(headerTitle);
 
     const headerButtons = document.createElement('div');
-    headerButtons.classList.add('rg-notes-dialog-header-buttons');
+    headerButtons.classList.add('olectio-notes-dialog-header-buttons');
     header.appendChild(headerButtons);
 
     const saveButton = document.createElement('button');
-    saveButton.classList.add('rg-notes-save');
+    saveButton.classList.add('olectio-notes-save');
     saveButton.title = 'Guardar';
 
     const editButton = document.createElement('button');
-    editButton.classList.add('rg-notes-edit');
+    editButton.classList.add('olectio-notes-edit');
     editButton.title = 'Editar';
 
     const separator = document.createElement('span');
-    separator.classList.add('rg-separator');
+    separator.classList.add('olectio-separator');
 
     const cancelButton = document.createElement('button');
-    cancelButton.classList.add('rg-notes-cancel');
+    cancelButton.classList.add('olectio-notes-cancel');
     cancelButton.title = 'Cancelar';
 
     const deleteButton = document.createElement('button');
-    deleteButton.classList.add('rg-notes-delete');
+    deleteButton.classList.add('olectio-notes-delete');
     deleteButton.title = 'Eliminar';
 
     const textHolder = document.createElement('div');
-    textHolder.classList.add('rg-notes-dialog-text-holder');
+    textHolder.classList.add('olectio-notes-dialog-text-holder');
     fieldset.appendChild(textHolder);
 
     const textarea = document.createElement('textarea');
     const noteDiv = document.createElement('div');
-    noteDiv.classList.add('rg-notes-dialog-note');
+    noteDiv.classList.add('olectio-notes-dialog-note');
 
     if (action.highlightKey) {
       noteDiv.innerText = action.note || '';
       textarea.value = action.note || '';
       (action.options || []).forEach((option) => {
         const button = document.createElement('button');
-        button.classList.add('rg-notes-option');
+        button.classList.add('olectio-notes-option');
         button.title = option.title;
         button.innerText = option.title;
         if (option.className) {
           button.classList.add(option.className);
         }
         if (option.selected) {
-          button.classList.add('rg-selected');
+          button.classList.add('olectio-selected');
         }
         if (option.style) {
           button.setAttribute('style', option.style);

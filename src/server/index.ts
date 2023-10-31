@@ -15,7 +15,7 @@ browserSync(
     files: ['web/*.*', 'web/*/*.*'],
     cors: true,
     port,
-    startPath: '/hepatologia.html',
+    startPath: '/9788582605837.html',
     codeSync: true,
   },
   () => {

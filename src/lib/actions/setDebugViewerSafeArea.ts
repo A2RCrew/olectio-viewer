@@ -11,12 +11,12 @@ import setCSSProperty from '../../utils/setCSSProperty';
 // eslint-disable-next-line @typescript-eslint/require-await
 const setDebugViewerSafeArea: ActionDispatcher<SetDebugViewerSafeArea> = async ({ action, state }) => {
   if (action.value && state.olectioContainerNode) {
-    const areas = document.getElementsByClassName('rg-viewer-safe-area');
+    const areas = document.getElementsByClassName('olectio-viewer-safe-area');
     if (!areas.length) {
       const safeAreaReadMode = document.createElement('div');
-      safeAreaReadMode.classList.add('rg-viewer-safe-area', 'rg-read-mode-safe');
+      safeAreaReadMode.classList.add('olectio-viewer-safe-area', 'olectio-read-mode-safe');
       const safeAreaUIMode = document.createElement('div');
-      safeAreaUIMode.classList.add('rg-viewer-safe-area', 'rg-ui-mode-safe');
+      safeAreaUIMode.classList.add('olectio-viewer-safe-area', 'olectio-ui-mode-safe');
       state.olectioContainerNode.appendChild(safeAreaReadMode);
       state.olectioContainerNode.appendChild(safeAreaUIMode);
     }

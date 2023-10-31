@@ -39,10 +39,10 @@ const setTextAlign: ActionDispatcher<SetTextAlign> = async ({ state, action }) =
       removeUserHighlights(state);
       window.requestAnimationFrame(() => {
         if (textAlign) {
-          contentWrapperNode.classList.add('rg-force-text-align');
+          contentWrapperNode.classList.add('olectio-force-text-align');
           setCSSProperty('text-align', textAlign);
         } else {
-          contentWrapperNode.classList.remove('rg-force-text-align');
+          contentWrapperNode.classList.remove('olectio-force-text-align');
           removeCSSProperty('text-align');
         }
         window.requestAnimationFrame(async (): Promise<void> => {

@@ -1,0 +1,1000 @@
+/** From CSS Remedy **/
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+html {
+  line-sizing: normal;
+}
+
+body {
+  margin: 0;
+}
+
+[hidden] {
+  display: none;
+}
+
+img,
+svg,
+video,
+canvas {
+  height: auto;
+}
+
+audio {
+  width: 100%;
+}
+
+img {
+  border-style: none;
+}
+
+svg {
+  overflow: hidden;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display: block;
+}
+
+/** End CSS Remedy **/
+
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body.olectio-fixed-layout,
+body.olectio-flow-layout {
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  padding: 0;
+  overflow: hidden;
+  background-color: #fff;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+body.olectio-fixed-layout::-webkit-scrollbar,
+body.olectio-flow-layout::-webkit-scrollbar {
+  display: none;
+}
+
+.olectio-viewer-safe-area {
+  position: fixed;
+  pointer-events: none;
+  border-style: solid;
+  border-width: var(--safe-area-border-width);
+}
+
+.olectio-viewer-safe-area.olectio-read-mode-safe {
+  border-color: #ff9966;
+  top: var(--safe-area-read-top);
+  left: var(--safe-area-read-left);
+  right: var(--safe-area-read-right);
+  bottom: var(--safe-area-read-bottom);
+}
+
+.olectio-viewer-safe-area.olectio-ui-mode-safe {
+  border-color: #ff3355;
+  top: var(--safe-area-ui-top);
+  left: var(--safe-area-ui-left);
+  right: var(--safe-area-ui-right);
+  bottom: var(--safe-area-ui-bottom);
+}
+
+div#olectio-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  filter: var(--theme-filter, none);
+  font-variant-ligatures: no-common-ligatures;
+  cursor: grab;
+}
+
+div#olectio-container .olectio-bg-cleaner {
+  position: absolute;
+  background-color: #fff;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.olectio-fixed-layout div#olectio-container .olectio-bg-cleaner {
+  background-color: #eee;
+}
+
+div#olectio-viewer {
+  float: left;
+  width: 100%;
+  height: 100%;
+  pointer-events: var(--pointer-events);
+  margin-top: var(--viewer-margin-top);
+  transform-origin: top left;
+  transform: translateX(var(--horizontal-translate)) translateY(var(--vertical-translate))
+    scale(var(--scale));
+}
+
+.olectio-scroller {
+  position: absolute;
+  background: transparent;
+  filter: var(--theme-filter, none);
+}
+
+.olectio-horizontal-scroll .olectio-scroller {
+  height: 15px;
+  bottom: 0;
+  left: calc(var(--scroller-left) - var(--safe-area-read-left));
+  right: 0;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+.olectio-horizontal-scroll .olectio-scroller-content {
+  height: 15px;
+}
+
+.olectio-flow-layout.olectio-horizontal-scroll .olectio-scroller-content {
+  width: calc(var(--scroll-width) * var(--scroller-scale, 1));
+}
+
+.olectio-fixed-layout.olectio-horizontal-scroll .olectio-scroller-content {
+  width: calc(var(--total-width) * var(--scroller-scale, 1));
+}
+
+.olectio-vertical-scroll .olectio-scroller {
+  right: 0;
+  width: 15px;
+  top: 0;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.olectio-vertical-scroll .olectio-scroller-content {
+  width: 15px;
+  height: calc(var(--scroll-height) + var(--padding-top) + var(--padding-bottom));
+}
+
+.olectio-fixed-layout.olectio-vertical-scroll .olectio-scroller-content {
+  height: calc(var(--total-height) + var(--padding-top) + var(--padding-bottom));
+}
+
+.olectio-button-chapter-navigation {
+  position: fixed;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  background-color: #666;
+  transition: opacity 0.3s;
+  background: #666;
+}
+
+.olectio-fixed-layout .olectio-button-chapter-navigation {
+  display: none;
+}
+
+.olectio-button-chapter-navigation.olectio-next-chapter {
+  opacity: var(--next-chapter-navigation-opacity, 0);
+}
+
+.olectio-button-chapter-navigation.olectio-prev-chapter {
+  opacity: var(--prev-chapter-navigation-opacity, 0);
+}
+
+.olectio-button-chapter-navigation:hover {
+  background-color: #444;
+}
+
+.olectio-button-chapter-navigation::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.olectio-horizontal-scroll .olectio-button-chapter-navigation {
+  width: 30px;
+  height: 20px;
+  bottom: 35px;
+}
+
+.olectio-horizontal-scroll .olectio-button-chapter-navigation::after {
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+}
+
+.olectio-horizontal-scroll .olectio-button-chapter-navigation.olectio-next-chapter {
+  right: 30px;
+}
+
+.olectio-horizontal-scroll .olectio-button-chapter-navigation.olectio-next-chapter::after {
+  border-left: 20px solid #666;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) translateX(100%);
+}
+
+.olectio-horizontal-scroll .olectio-button-chapter-navigation.olectio-next-chapter:hover::after {
+  border-left-color: #444;
+}
+
+.olectio-horizontal-scroll .olectio-button-chapter-navigation.olectio-prev-chapter {
+  left: calc(var(--scroller-left, 0) + 30px);
+}
+
+.olectio-horizontal-scroll .olectio-button-chapter-navigation.olectio-prev-chapter::after {
+  border-right: 20px solid #666;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%) translateX(-100%);
+}
+
+.olectio-horizontal-scroll .olectio-button-chapter-navigation.olectio-prev-chapter:hover::after {
+  border-right-color: #444;
+}
+
+/* Vertical */
+
+.olectio-vertical-scroll .olectio-button-chapter-navigation {
+  width: 20px;
+  height: 30px;
+  right: 35px;
+}
+
+.olectio-vertical-scroll .olectio-button-chapter-navigation::after {
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+}
+
+.olectio-vertical-scroll .olectio-button-chapter-navigation.olectio-next-chapter {
+  bottom: 30px;
+}
+
+.olectio-vertical-scroll .olectio-button-chapter-navigation.olectio-next-chapter::after {
+  border-top: 20px solid #666;
+  bottom: 0;
+  left: 50%;
+  transform: translateY(100%) translateX(-50%);
+}
+
+.olectio-vertical-scroll .olectio-button-chapter-navigation.olectio-next-chapter:hover::after {
+  border-top-color: #444;
+}
+
+.olectio-vertical-scroll .olectio-button-chapter-navigation.olectio-prev-chapter {
+  top: 30px;
+}
+
+.olectio-vertical-scroll .olectio-button-chapter-navigation.olectio-prev-chapter::after {
+  border-bottom: 20px solid #666;
+  top: 0;
+  left: 50%;
+  transform: translateY(-100%) translateX(-50%);
+}
+
+.olectio-vertical-scroll .olectio-button-chapter-navigation.olectio-prev-chapter:hover::after {
+  border-bottom-color: #444;
+}
+
+div.olectio-content-wrapper {
+  outline: solid var(--safe-area-border-width) red;
+  margin: var(--safe-area-margin-correction);
+  height: 100%;
+  padding: var(--padding-top) 0 var(--padding-bottom) 0;
+  clear: both;
+  cursor: var(--drag-cursor, grab);
+  user-select: none;
+}
+
+.olectio-flow-layout div.olectio-content-wrapper #olectio-content-placeholder span[data-page] {
+  display: block;
+  float: left;
+}
+
+div.olectio-content-wrapper #olectio-content-placeholder > div a {
+  pointer-events: auto !important;
+}
+
+.olectio-fixed-layout div.olectio-content-wrapper div#olectio-content-placeholder > .olectio-fixed-content-container {
+  position: absolute;
+  margin: 0;
+  overflow: hidden;
+}
+
+.olectio-fixed-layout
+  div.olectio-content-wrapper
+  div#olectio-content-placeholder
+  > .olectio-fixed-content-container.olectio-avoid-invert {
+  filter: var(--theme-filter, none);
+}
+
+.olectio-vertical-scroll.olectio-fixed-layout
+  div.olectio-content-wrapper
+  div#olectio-content-placeholder
+  > .olectio-fixed-content-container {
+  top: var(--page-top);
+  margin-left: calc((var(--max-width) - var(--page-width)) / 2);
+}
+
+.olectio-horizontal-scroll.olectio-fixed-layout
+  div.olectio-content-wrapper
+  div#olectio-content-placeholder
+  > .olectio-fixed-content-container {
+  left: var(--page-left);
+  margin-top: calc((var(--max-height) - var(--page-height)) / 2);
+}
+
+.olectio-fixed-layout.olectio-horizontal-scroll div.olectio-content-wrapper div#olectio-content-placeholder {
+  width: var(--total-width);
+  height: auto;
+}
+
+.olectio-fixed-layout.olectio-vertical-scroll div.olectio-content-wrapper div#olectio-content-placeholder {
+  height: var(--total-height);
+  width: auto;
+}
+
+.olectio-fixed-layout [data-link] > div {
+  border: none !important;
+}
+
+.olectio-fixed-content-container a,
+.olectio-fixed-content-container a > div {
+  user-select: none !important;
+}
+
+div.olectio-content-wrapper #olectio-content-placeholder > div {
+  user-select: var(--user-select);
+  -webkit-user-select: var(--user-select);
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+div.olectio-content-wrapper #olectio-content-placeholder *::selection {
+  background-color: transparent;
+}
+
+.olectio-flow-layout div.olectio-content-wrapper #olectio-content-placeholder > div,
+.olectio-flow-layout div.olectio-content-wrapper #olectio-content-placeholder h1,
+.olectio-flow-layout div.olectio-content-wrapper #olectio-content-placeholder h2,
+.olectio-flow-layout div.olectio-content-wrapper #olectio-content-placeholder h3,
+.olectio-flow-layout div.olectio-content-wrapper #olectio-content-placeholder h4,
+.olectio-flow-layout div.olectio-content-wrapper #olectio-content-placeholder h5,
+.olectio-flow-layout div.olectio-content-wrapper #olectio-content-placeholder h6,
+.olectio-flow-layout div.olectio-content-wrapper #olectio-content-placeholder p {
+  backface-visibility: visible;
+  -webkit-backface-visibility: visible;
+}
+
+.olectio-flow-layout div.olectio-content-wrapper {
+  padding: var(--padding-top) calc(var(--column-gap) / 2) var(--padding-bottom);
+  font-size: var(--font-size);
+  font-family: var(--font-family);
+}
+
+.olectio-flow-layout.olectio-horizontal-scroll div.olectio-content-wrapper {
+  column-count: var(--column-count);
+  column-rule: 1px solid #eee;
+  column-gap: var(--column-gap);
+  column-width: var(--column-width);
+}
+
+.olectio-flow-layout div#olectio-content-placeholder * {
+  line-height: var(--line-height) !important;
+}
+
+.olectio-flow-layout.olectio-vertical-scroll div#olectio-content-placeholder {
+  overflow: hidden;
+}
+
+.olectio-flow-layout div.olectio-content-wrapper video:not(:fullscreen),
+.olectio-flow-layout div.olectio-content-wrapper iframe {
+  filter: var(--theme-filter, none);
+}
+
+.olectio-flow-layout.olectio-horizontal-scroll div.olectio-content-wrapper img.olectio-ready,
+.olectio-flow-layout.olectio-horizontal-scroll div.olectio-content-wrapper video,
+.olectio-flow-layout.olectio-horizontal-scroll div.olectio-content-wrapper table,
+.olectio-flow-layout.olectio-horizontal-scroll div.olectio-content-wrapper iframe {
+  max-width: min(var(--column-width), 100%);
+}
+
+.olectio-flow-layout.olectio-vertical-scroll div.olectio-content-wrapper img.olectio-ready,
+.olectio-flow-layout.olectio-vertical-scroll div.olectio-content-wrapper video,
+.olectio-flow-layout.olectio-vertical-scroll div.olectio-content-wrapper table,
+.olectio-flow-layout.olectio-vertical-scroll div.olectio-content-wrapper iframe {
+  max-width: min(100%, calc(100vw - var(--column-gap)));
+}
+
+.olectio-flow-layout div.olectio-content-wrapper img.olectio-ready,
+.olectio-fixed-layout div.olectio-content-wrapper div#olectio-content-placeholder img {
+  pointer-events: none;
+  cursor: pointer;
+}
+
+.olectio-flow-layout.olectio-horizontal-scroll div.olectio-content-wrapper img.olectio-ready {
+  max-height: min(
+    calc(100vh - var(--padding-top) - var(--padding-bottom)),
+    calc(var(--image-ratio, 100) * var(--column-width))
+  ) !important;
+}
+
+.olectio-flow-layout.olectio-horizontal-scroll div.olectio-content-wrapper img.olectio-fit-height {
+  width: unset !important;
+}
+
+.olectio-loading::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background-color: #ddd;
+}
+
+@media (max-width: 48em) {
+  .olectio-flow-layout.olectio-horizontal-scroll div.olectio-content-wrapper img.olectio-fit-height {
+    max-height: min(
+      calc(100vh - var(--padding-top) - var(--padding-bottom) - 65px),
+      calc(var(--image-ratio, 100) * var(--column-width))
+    ) !important;
+  }
+}
+
+div.olectio-content-wrapper.olectio-force-text-align * {
+  text-align: var(--text-align) !important;
+}
+
+div.olectio-total-width-calculator,
+div.olectio-end-of-chapter-calculator {
+  width: 100%;
+  height: 0px;
+  font-size: 0px;
+  user-select: var(--user-select-end);
+  -webkit-user-select: var(--user-select-end);
+}
+
+div.olectio-pages-labels {
+  position: absolute;
+  top: 100%;
+  height: 3em;
+  font-size: var(--font-size);
+  width: var(--total-width);
+  overflow: visible;
+}
+
+div.olectio-pages-labels > .olectio-label {
+  position: relative;
+  padding-top: 1px;
+  width: var(--total-column-width);
+  float: left;
+  height: 2em;
+  pointer-events: none;
+}
+
+div.olectio-pages-labels > .olectio-label p {
+  border-top: 1px solid #eee;
+  margin: 0 1em;
+  text-align: center;
+  font-weight: 600;
+  line-height: 3em;
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: none;
+}
+
+.olectio-fixed-content-container > div > div *[class*=' fs'],
+.olectio-fixed-content-container > div > div *[class*=' fc'],
+.olectio-fixed-content-container > div > div *[class*=' ff'],
+.olectio-text-cursor {
+  cursor: text;
+}
+
+div.olectio-highlights-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  mix-blend-mode: multiply;
+}
+
+div.olectio-highlights-layer.olectio-selection {
+  --highlighter-color: var(--current-selection-highlights-color);
+}
+
+div.olectio-highlights-layer.olectio-search {
+  --highlighter-color: var(--search-highlights-color);
+}
+
+div.olectio-highlights-layer.olectio-selection > div,
+div.olectio-highlights-layer.olectio-search > div {
+  pointer-events: none;
+}
+
+div.olectio-highlights-layer > div {
+  position: absolute;
+  border: none;
+  background-color: var(--highlighter-color);
+  pointer-events: var(--highlights-pointer-events);
+  transform: translate3d(0, 0, 0);
+}
+
+.olectio-dark-theme div.olectio-highlights-layer > div {
+  filter: brightness(0.8);
+  /* mix-blend-mode: multiply; Needed for mobile, will need to add it with specific class */
+}
+
+div.olectio-highlights-layer .olectio-selection-extensor {
+  background-color: var(--current-selection-extensors-color);
+  width: 27px;
+  height: 27px;
+  border-radius: 100%;
+  pointer-events: var(--extensors-pointer-events);
+  border: 1px solid #fff;
+}
+
+div.olectio-highlights-layer.olectio-selectors {
+  mix-blend-mode: normal;
+}
+
+div.olectio-highlights-layer > .olectio-left-extensor {
+  border-top-right-radius: 0;
+  cursor: e-resize;
+}
+
+div.olectio-highlights-layer > .olectio-right-extensor {
+  border-top-left-radius: 0;
+  cursor: e-resize;
+}
+
+div.olectio-selection-menu,
+div.olectio-notes-dialog,
+div.olectio-confirmation-dialog,
+div.olectio-highlights-layer {
+  filter: var(--theme-filter, none);
+}
+
+div.olectio-selection-menu,
+div.olectio-selection-menu .olectio-selection-menu-wrapper,
+div.olectio-selection-menu .olectio-selection-menu-wrapper .olectio-selection-menu-holder,
+div.olectio-notes-dialog,
+div.olectio-notes-dialog .olectio-notes-dialog-wrapper,
+div.olectio-notes-dialog .olectio-notes-dialog-wrapper .olectio-notes-dialog-holder,
+div.olectio-notes-dialog .olectio-notes-dialog-header,
+div.olectio-notes-dialog .olectio-notes-dialog-header-title,
+div.olectio-notes-dialog .olectio-notes-dialog-header-buttons,
+div.olectio-notes-dialog .olectio-notes-dialog-text-holder,
+div.olectio-confirmation-dialog,
+div.olectio-confirmation-dialog .olectio-confirmation-dialog-wrapper,
+div.olectio-confirmation-dialog .olectio-confirmation-dialog-wrapper .olectio-confirmation-dialog-holder,
+div.olectio-confirmation-dialog .olectio-confirmation-dialog-wrapper .olectio-confirmation-dialog-buttons {
+  display: flex;
+  flex-flow: row nowrap;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+div.olectio-notes-dialog .olectio-notes-dialog-wrapper .olectio-notes-dialog-holder fieldset {
+  display: flex;
+  flex-flow: column nowrap;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+div.olectio-selection-menu,
+div.olectio-notes-dialog,
+div.olectio-confirmation-dialog {
+  position: absolute;
+  z-index: 900;
+  pointer-events: auto;
+}
+
+div.olectio-notes-dialog,
+div.olectio-confirmation-dialog {
+  font-family: Muli, Helvetica, sans-serif;
+}
+
+div.olectio-selection-menu.olectio-bottom-arrow,
+div.olectio-notes-dialog.olectio-bottom-arrow,
+div.olectio-confirmation-dialog.olectio-bottom-arrow {
+  transform: translateX(-50%) translateY(-100%) scale(calc(1 / var(--scale)));
+  transform-origin: center bottom;
+}
+
+div.olectio-selection-menu.olectio-top-arrow,
+div.olectio-notes-dialog.olectio-top-arrow,
+div.olectio-confirmation-dialog.olectio-top-arrow {
+  transform: translateX(-50%) scale(calc(1 / var(--scale)));
+}
+
+div.olectio-selection-menu .olectio-selection-menu-wrapper,
+div.olectio-notes-dialog .olectio-notes-dialog-wrapper,
+div.olectio-confirmation-dialog .olectio-confirmation-dialog-wrapper {
+  background-color: #fff;
+  border-radius: 30px;
+  position: relative;
+  padding: 15px 20px;
+  filter: drop-shadow(rgba(0, 0, 0, 0.2) 0px 0px 15px);
+}
+
+div.olectio-selection-menu .olectio-selection-menu-wrapper:before,
+div.olectio-notes-dialog .olectio-notes-dialog-wrapper:before,
+div.olectio-confirmation-dialog .olectio-confirmation-dialog-wrapper:before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background-color: #fff;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  border-bottom-right-radius: 5px;
+}
+
+div.olectio-selection-menu.olectio-bottom-arrow .olectio-selection-menu-wrapper:before,
+div.olectio-notes-dialog.olectio-bottom-arrow .olectio-notes-dialog-wrapper:before,
+div.olectio-confirmation-dialog.olectio-bottom-arrow .olectio-confirmation-dialog-wrapper:before {
+  bottom: -10px;
+}
+
+div.olectio-selection-menu.olectio-top-arrow .olectio-selection-menu-wrapper:before,
+div.olectio-notes-dialog.olectio-top-arrow .olectio-notes-dialog-wrapper:before,
+div.olectio-confirmation-dialog.olectio-top-arrow .olectio-confirmation-dialog-wrapper:before {
+  top: -10px;
+}
+
+div.olectio-notes-dialog .olectio-notes-dialog-header-title p {
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+div.olectio-notes-dialog form {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+div.olectio-notes-dialog fieldset {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+div.olectio-notes-dialog .olectio-notes-dialog-wrapper .olectio-notes-dialog-header,
+div.olectio-notes-dialog .olectio-notes-dialog-wrapper .olectio-notes-dialog-text-holder,
+div.olectio-confirmation-dialog .olectio-confirmation-dialog-wrapper .olectio-confirmation-dialog-holder {
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  width: 100%;
+}
+
+div.olectio-confirmation-dialog .olectio-confirmation-dialog-wrapper .olectio-confirmation-dialog-holder {
+  flex-flow: column nowrap;
+}
+
+div.olectio-confirmation-dialog .olectio-confirmation-dialog-wrapper .olectio-confirmation-dialog-holder p {
+  font-size: 0.825rem;
+  color: #4d4d4d;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.5em;
+}
+
+div.olectio-confirmation-dialog .olectio-confirmation-dialog-wrapper .olectio-confirmation-dialog-buttons {
+  margin-top: 10px;
+}
+
+div.olectio-confirmation-dialog .olectio-confirmation-dialog-wrapper .olectio-confirmation-dialog-buttons button {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  position: relative;
+  user-select: none;
+  font-size: 0.625rem;
+  transition: background-color 0.2s ease-in 0s, border-color 0.2s ease-in 0s;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  text-align: center;
+  min-width: 0px;
+  min-height: 20px;
+  border-radius: 32px;
+  background-color: #f2b818;
+  border: 2px solid #f2b818;
+  color: #ffffff;
+  padding: 5px 10px;
+}
+
+div.olectio-confirmation-dialog
+  .olectio-confirmation-dialog-wrapper
+  .olectio-confirmation-dialog-buttons
+  button:hover {
+  background-color: #ca970b;
+  border-color: #ca970b;
+}
+
+div.olectio-confirmation-dialog
+  .olectio-confirmation-dialog-wrapper
+  .olectio-confirmation-dialog-buttons
+  button
+  + button {
+  margin-left: 10px;
+}
+
+div.olectio-notes-dialog .olectio-notes-dialog-wrapper .olectio-notes-dialog-header-buttons {
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+}
+
+div.olectio-notes-dialog .olectio-notes-dialog-wrapper .olectio-notes-dialog-text-holder {
+  margin-top: 10px;
+}
+
+div.olectio-notes-dialog textarea {
+  border: 1px solid #f3f3f3;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  color: #979797;
+  padding: 10px;
+  width: 100%;
+  min-width: 250px;
+  height: 100px;
+  resize: vertical;
+  outline: none;
+}
+
+div.olectio-notes-dialog textarea:hover,
+div.olectio-notes-dialog textarea:focus {
+  border-color: #979797;
+}
+
+div.olectio-selection-menu .olectio-selection-menu-wrapper .olectio-selection-menu-holder .olectio-selection-option,
+div.olectio-notes-dialog .olectio-notes-dialog-wrapper .olectio-notes-dialog-holder .olectio-notes-option {
+  position: relative;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  position: relative;
+  user-select: none;
+  background-color: #fff;
+  width: 1.375rem;
+  min-width: 1.375rem;
+  height: 1.375rem;
+  -webkit-appearance: button;
+  cursor: pointer;
+  border: 0;
+}
+
+div.olectio-selection-menu .olectio-selection-menu-wrapper .olectio-selection-menu-holder .olectio-separator {
+  display: flex;
+  background-color: #f3f3f3;
+  height: 30px;
+  min-height: 30px;
+  width: 3px;
+  min-width: 3px;
+  border-radius: 3px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+div.olectio-notes-dialog .olectio-notes-dialog-wrapper .olectio-notes-dialog-holder .olectio-notes-dialog-note {
+  border: 1px solid #f3f3f3;
+  font-size: 0.75rem;
+  padding: 10px;
+  width: 100%;
+  min-width: 250px;
+  color: #979797;
+  letter-spacing: 0px;
+  border-radius: 5px;
+}
+
+.olectio-selection-option,
+.olectio-notes-option {
+  overflow: hidden;
+  text-indent: -10000px;
+  outline: none;
+}
+
+.olectio-selection-option + .olectio-selection-option {
+  margin-left: 15px;
+}
+
+.olectio-notes-option + .olectio-notes-option {
+  margin-left: 10px;
+}
+
+.olectio-notes-option:last-of-type {
+  margin-right: 10px;
+}
+
+.olectio-selection-option:after,
+.olectio-notes-option:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.olectio-notes-save:after,
+.olectio-notes-cancel:after,
+.olectio-notes-edit:after,
+.olectio-notes-delete:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  transform: translate(-50%, -50%);
+}
+
+.olectio-notes-save:after,
+.olectio-notes-cancel:after {
+  width: 20px;
+  height: 24px;
+  transform: translate(-60%, -50%);
+}
+
+.olectio-selection-option:after,
+.olectio-notes-option:after {
+  background-color: var(--highlighter-color);
+}
+
+.olectio-notes-dialog-header-buttons span {
+  display: flex;
+  background-color: #f3f3f3;
+  height: 20px;
+  min-height: 20px;
+  width: 3px;
+  min-width: 3px;
+  border-radius: 3px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.olectio-notes-save,
+.olectio-notes-cancel,
+.olectio-notes-edit,
+.olectio-notes-delete {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  position: relative;
+  user-select: none;
+  background-color: #00000000;
+  width: 1.25rem;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  border: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.olectio-notes-save:after,
+.olectio-notes-cancel:after,
+.olectio-notes-edit:after,
+.olectio-notes-delete:after {
+  background-color: #979797;
+}
+
+.olectio-notes-save:hover:after,
+.olectio-notes-cancel:hover:after,
+.olectio-notes-edit:hover:after,
+.olectio-notes-delete:hover:after {
+  background-color: #4d4d4d;
+}
+
+.olectio-notes-save:after {
+  mask-image: url(../img/icons/check.svg);
+  -webkit-mask-image: url(../img/icons/check.svg);
+}
+
+.olectio-notes-edit:after {
+  mask-image: url(../img/icons/edit.svg);
+  -webkit-mask-image: url(../img/icons/edit.svg);
+}
+
+.olectio-notes-cancel:after {
+  background-color: #979797;
+  mask-image: url(../img/icons/close.svg);
+  -webkit-mask-image: url(../img/icons/close.svg);
+}
+
+.olectio-selection-option.highlighter:after {
+  mask-image: url(../img/icons/highlighter.svg);
+  -webkit-mask-image: url(../img/icons/highlighter.svg);
+}
+
+.olectio-selection-option.highlighter:hover:after,
+.olectio-selection-option.highlighter.olectio-selected:after {
+  mask-image: url(../img/icons/highlighterOn.svg);
+  -webkit-mask-image: url(../img/icons/highlighterOn.svg);
+}
+
+.olectio-selection-option.note:after,
+.olectio-notes-option:after {
+  mask-image: url(../img/icons/note.svg);
+  -webkit-mask-image: url(../img/icons/note.svg);
+}
+
+.olectio-selection-option.note:hover:after,
+.olectio-selection-option.note.olectio-selected:after,
+.olectio-notes-option:hover:after,
+.olectio-notes-option.olectio-selected:after {
+  mask-image: url(../img/icons/noteOn.svg);
+  -webkit-mask-image: url(../img/icons/noteOn.svg);
+}
+
+.olectio-selection-option.olectio-delete:after,
+.olectio-notes-delete:after {
+  mask-image: url(../img/icons/delete.svg);
+  -webkit-mask-image: url(../img/icons/delete.svg);
+}
+
+.olectio-selection-option.olectio-copy:after {
+  mask-image: url(../img/icons/copy.svg);
+  -webkit-mask-image: url(../img/icons/copy.svg);
+}
+
+.olectio-selection-option.olectio-delete:after,
+.olectio-notes-delete:after,
+.olectio-selection-option.olectio-copy:after {
+  background-color: #979797;
+}
+
+.olectio-selection-option.olectio-delete:hover:after,
+.olectio-notes-delete:hover:after,
+.olectio-selection-option.olectio-copy:not(:disabled):hover:after {
+  background-color: #4d4d4d;
+}
+
+div.olectio-selection-menu
+  .olectio-selection-menu-wrapper
+  .olectio-selection-menu-holder
+  .olectio-selection-option:disabled {
+  cursor: default;
+}
+
+div.olectio-selection-menu
+  .olectio-selection-menu-wrapper
+  .olectio-selection-menu-holder
+  .olectio-selection-option:disabled:after {
+  opacity: 0.5;
+}

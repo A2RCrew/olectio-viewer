@@ -6,8 +6,8 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
     />
-    <title>Olectio Testing Viewer 9788582605837 (EPUB Flow)</title>
-    <meta name="description" content="Viewer used by to test the 9788582605837 content" />
+    <title>Olectio Testing Autobiografia Postuma (EPUB Flow)</title>
+    <meta name="description" content="Viewer used by to test the Autobiografia Postuma content" />
     <link rel="preload" as="style" href="/css/readium.css/>
     <link rel="stylesheet" type="text/css" href="/css/readium.css" />
     <link rel="preload" as="style" href="/css/olectio-viewer.css" />
@@ -22,13 +22,11 @@
   <body></body>
   <script type="text/javascript">
     window.olectioApi = window.olectioViewer({
-      layoutType: 'flow',
+      layoutType: 'fixed',
+      initialScrollMode: 'vertical',
       eventHandler: window.olectioEventHandler,
-      slug: '9788582605837',
-      contentSlug: '60',
-      initialFontSize: 18,
-      initialFontFamily: 'Obf-Helvetica',
-      initialScrollMode: 'horizontal',
+      slug: 'autobiografia-postuma',
+      contentSlug: '100',
       availableFontFamilies: [
         'Obf-Helvetica',
         'Obf-OpenDyslexic',
@@ -38,17 +36,19 @@
         'Obf-Tahoma',
         'Obf-TimesNewRoman',
       ],
+      paddingTop: 0,
+      paddingBottom: 0,
       readModeMargin: {
-        top: 0,
-        left: 0,
-        bottom: 0,
-        right: 0,
+        top: 20,
+        left: 100,
+        bottom: 70,
+        right: 20,
       },
       uiModeMargin: {
-        top: 100,
-        left: 0,
-        bottom: 0,
-        right: 0,
+        top: 20,
+        left: 450,
+        bottom: 70,
+        right: 20,
       },
       toggleReadModeOnClick: false,
     });

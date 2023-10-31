@@ -6,8 +6,8 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
     />
-    <title>Olectio Testing Viewer 9788582605837 (EPUB Flow)</title>
-    <meta name="description" content="Viewer used by to test the 9788582605837 content" />
+    <title>Olectio Testing Viewer Acuario (EPUB Flow)</title>
+    <meta name="description" content="Viewer used by to test the acuario content" />
     <link rel="preload" as="style" href="/css/readium.css/>
     <link rel="stylesheet" type="text/css" href="/css/readium.css" />
     <link rel="preload" as="style" href="/css/olectio-viewer.css" />
@@ -24,11 +24,10 @@
     window.olectioApi = window.olectioViewer({
       layoutType: 'flow',
       eventHandler: window.olectioEventHandler,
-      slug: '9788582605837',
-      contentSlug: '60',
+      slug: 'acuario',
+      contentSlug: '50',
       initialFontSize: 18,
       initialFontFamily: 'Obf-Helvetica',
-      initialScrollMode: 'horizontal',
       availableFontFamilies: [
         'Obf-Helvetica',
         'Obf-OpenDyslexic',
@@ -45,12 +44,12 @@
         right: 0,
       },
       uiModeMargin: {
-        top: 100,
-        left: 0,
-        bottom: 0,
-        right: 0,
+        top: 20,
+        left: 450,
+        bottom: 70,
+        right: 20,
       },
-      toggleReadModeOnClick: false,
+      toggleReadModeOnClick: true,
     });
     window.olectioSetDispatcher(window.olectioApi.dispatch);
     window.olectioSetState(window.olectioApi.state);

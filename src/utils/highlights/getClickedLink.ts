@@ -44,7 +44,7 @@ const getClickedLink = (
     while (!clickedLink && element && element.parentElement && element !== contentPlaceholderNode) {
       if (element.nodeName === 'A') {
         clickedLink = element as HTMLAnchorElement;
-      } else if (element.classList.contains('rg-fixed-content-container')) {
+      } else if (element.classList.contains('olectio-fixed-content-container')) {
         clickedLink = detectLinkInFixedPage(element, syntheticEvent);
       }
       element = element.parentElement;

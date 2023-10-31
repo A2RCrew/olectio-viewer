@@ -13,8 +13,8 @@ const setTheme: ActionDispatcher<SetTheme> = async ({ state, action }) => {
     } else {
       removeCSSProperty('theme-filter');
     }
-    document.body.classList.remove(`rg-${state.theme}-theme`);
-    document.body.classList.add(`rg-${theme}-theme`);
+    document.body.classList.remove(`olectio-${state.theme}-theme`);
+    document.body.classList.add(`olectio-${theme}-theme`);
     return { theme };
   }
   return {};

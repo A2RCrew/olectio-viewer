@@ -9,7 +9,7 @@ const getClickedHighlight = (ev: MouseEvent | TouchEvent, event?: SyntheticEvent
   const elements = document.elementsFromPoint(syntheticEvent.clientX, syntheticEvent.clientY);
   for (let i = 0, l = elements.length; i < l && !res; i++) {
     const element = elements[i];
-    if (element.classList.contains('rg-highlight')) {
+    if (element.classList.contains('olectio-highlight')) {
       res = (element as HTMLDivElement).dataset.key || null;
     }
   }

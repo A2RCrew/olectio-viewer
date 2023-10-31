@@ -24,20 +24,20 @@ let onScroll: ((ev: Event) => void) | null = null;
 const getLeftExtensor = (): HTMLDivElement => {
   if (!left) {
     left = document.createElement('div');
-    left.classList.add('rg-selection-extensor', 'rg-left-extensor');
+    left.classList.add('olectio-selection-extensor', 'olectio-left-extensor');
   }
-  left.classList.remove('rg-right-extensor');
-  left.classList.add('rg-left-extensor');
+  left.classList.remove('olectio-right-extensor');
+  left.classList.add('olectio-left-extensor');
   return left;
 };
 
 const getRightExtensor = (): HTMLDivElement => {
   if (!right) {
     right = document.createElement('div');
-    right.classList.add('rg-selection-extensor', 'rg-right-extensor');
+    right.classList.add('olectio-selection-extensor', 'olectio-right-extensor');
   }
-  right.classList.remove('rg-left-extensor');
-  right.classList.add('rg-right-extensor');
+  right.classList.remove('olectio-left-extensor');
+  right.classList.add('olectio-right-extensor');
   return right;
 };
 
@@ -87,12 +87,12 @@ const drawExtensors = (
     const rects = Array.from(domItems.map((hl) => hl.getBoundingClientRect()));
     const [firstRect] = rects;
     const [lastRect] = rects.slice(-1);
-    leftExtensor.classList.remove('rg-right-extensor');
-    leftExtensor.classList.add('rg-left-extensor');
+    leftExtensor.classList.remove('olectio-right-extensor');
+    leftExtensor.classList.add('olectio-left-extensor');
     leftExtensor.style.top = `${clientToContentWrapperTop(firstRect.top + firstRect.height)}px`;
     leftExtensor.style.left = `${clientToContentWrapperLeft(firstRect.left) - 28}px`;
-    rightExtensor.classList.remove('rg-left-extensor');
-    rightExtensor.classList.add('rg-right-extensor');
+    rightExtensor.classList.remove('olectio-left-extensor');
+    rightExtensor.classList.add('olectio-right-extensor');
     rightExtensor.style.top = `${clientToContentWrapperTop(lastRect.top + lastRect.height)}px`;
     rightExtensor.style.left = `${clientToContentWrapperLeft(lastRect.right)}px`;
     if (!lineHeight) {
@@ -143,10 +143,10 @@ const drawExtensors = (
         currentSelection = range;
         currentHighlights = drawHighlights(selectionHighlightsNode, [currentSelection]);
         if (hasInverted) {
-          leftExtensor.classList.remove('rg-left-extensor');
-          leftExtensor.classList.add('rg-right-extensor');
-          rightExtensor.classList.remove('rg-right-extensor');
-          rightExtensor.classList.add('rg-left-extensor');
+          leftExtensor.classList.remove('olectio-left-extensor');
+          leftExtensor.classList.add('olectio-right-extensor');
+          rightExtensor.classList.remove('olectio-right-extensor');
+          rightExtensor.classList.add('olectio-left-extensor');
           if (isLeft) {
             updateLeftPosition(currentHighlights, rightExtensor);
           } else {

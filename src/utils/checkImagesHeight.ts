@@ -50,19 +50,19 @@ const checkImagesHeight = async (
           const { height: fullHeight, width: fullWidth } = clone;
           const visibleHeight = img.getClientRects()[0]?.height;
           clearTimeout(securityTimeout);
-          img.classList.remove('rg-fit-height');
+          img.classList.remove('olectio-fit-height');
           if (visibleHeight) {
             const containerHeight =
               state.containerHeight - (state.config.paddingBottom + state.config.paddingTop);
             if (visibleHeight >= containerHeight * 0.95) {
-              img.classList.add('rg-fit-height');
+              img.classList.add('olectio-fit-height');
             }
           }
           if (fullHeight) {
             // eslint-disable-next-line no-param-reassign
             img.style.setProperty('--image-ratio', `${fullHeight / fullWidth}`);
           }
-          img.classList.add('rg-ready');
+          img.classList.add('olectio-ready');
           imageResolve();
         };
         clone.onload = onLoad;

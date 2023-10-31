@@ -8,9 +8,9 @@ export const cleanDOM = (state: State): void => {
     state.olectioContainerNode.remove();
   }
   document.body.classList.remove(
-    `rg-${state.layout}-layout`,
-    `rg-${state.scrollMode}-scroll`,
-    `rg-${state.theme}-theme`,
+    `olectio-${state.layout}-layout`,
+    `olectio-${state.scrollMode}-scroll`,
+    `olectio-${state.theme}-theme`,
   );
 };
 
@@ -20,41 +20,41 @@ export const cleanDOM = (state: State): void => {
  */
 const createBasicDOMElements = (state: State): void => {
   document.body.classList.add(
-    `rg-${state.layout}-layout`,
-    `rg-${state.scrollMode}-scroll`,
-    `rg-${state.theme}-theme`,
+    `olectio-${state.layout}-layout`,
+    `olectio-${state.scrollMode}-scroll`,
+    `olectio-${state.theme}-theme`,
   );
 
   // #region Container node
   const olectioContainerNode = document.createElement('div');
-  olectioContainerNode.id = 'rg-container';
+  olectioContainerNode.id = 'olectio-container';
 
   const backgroundCleaner = document.createElement('div');
-  backgroundCleaner.classList.add('rg-bg-cleaner');
+  backgroundCleaner.classList.add('olectio-bg-cleaner');
   olectioContainerNode.appendChild(backgroundCleaner);
   // #endregion Container node
 
   // #region Main node
   const olectioViewerNode = document.createElement('div');
-  olectioViewerNode.id = 'rg-viewer';
+  olectioViewerNode.id = 'olectio-viewer';
   olectioContainerNode.appendChild(olectioViewerNode);
   // #endregion Main node
 
   // #region Content Wrapper and child nodes
   const contentWrapperNode = document.createElement('div');
-  contentWrapperNode.classList.add('rg-content-wrapper');
+  contentWrapperNode.classList.add('olectio-content-wrapper');
   olectioViewerNode.appendChild(contentWrapperNode);
   if (state.layout === 'flow' && state.textAlign) {
-    contentWrapperNode.classList.add('rg-force-text-align');
+    contentWrapperNode.classList.add('olectio-force-text-align');
   }
 
   const contentPlaceholderNode = document.createElement('div');
-  contentPlaceholderNode.id = 'rg-content-placeholder';
+  contentPlaceholderNode.id = 'olectio-content-placeholder';
   contentWrapperNode.appendChild(contentPlaceholderNode);
 
   const endOfChapterCalculatorNode = document.createElement('div');
   endOfChapterCalculatorNode.innerText = 'realEndOfChapter';
-  endOfChapterCalculatorNode.classList.add('rg-end-of-chapter-calculator');
+  endOfChapterCalculatorNode.classList.add('olectio-end-of-chapter-calculator');
   endOfChapterCalculatorNode.dataset.page = '-';
   contentWrapperNode.appendChild(endOfChapterCalculatorNode);
   // #endregion Content Wrapper and child nodes
@@ -63,20 +63,20 @@ const createBasicDOMElements = (state: State): void => {
   if (state.layout === 'flow') {
     // #region Content Wrapper Siblings
     pagesLabelsNode = document.createElement('div');
-    pagesLabelsNode.classList.add('rg-pages-labels');
+    pagesLabelsNode.classList.add('olectio-pages-labels');
     olectioViewerNode.appendChild(pagesLabelsNode);
   }
 
   const selectionHighlightsNode = document.createElement('div');
-  selectionHighlightsNode.classList.add('rg-highlights-layer', 'rg-selection');
+  selectionHighlightsNode.classList.add('olectio-highlights-layer', 'olectio-selection');
   olectioViewerNode.appendChild(selectionHighlightsNode);
 
   const selectionSelectorsNode = document.createElement('div');
-  selectionSelectorsNode.classList.add('rg-highlights-layer', 'rg-selectors');
+  selectionSelectorsNode.classList.add('olectio-highlights-layer', 'olectio-selectors');
   olectioViewerNode.appendChild(selectionSelectorsNode);
 
   const searchTermsHighlightsNode = document.createElement('div');
-  searchTermsHighlightsNode.classList.add('rg-highlights-layer', 'rg-search');
+  searchTermsHighlightsNode.classList.add('olectio-highlights-layer', 'olectio-search');
   olectioViewerNode.appendChild(searchTermsHighlightsNode);
   // #endregion Content Wrapper Siblings
 
@@ -86,19 +86,19 @@ const createBasicDOMElements = (state: State): void => {
 
   if (state.config.experimental?.scrollbars) {
     scrollerNode = document.createElement('div');
-    scrollerNode.classList.add('rg-scroller');
+    scrollerNode.classList.add('olectio-scroller');
 
     const scrollerContentNode = document.createElement('div');
-    scrollerContentNode.classList.add('rg-scroller-content');
+    scrollerContentNode.classList.add('olectio-scroller-content');
     scrollerNode.appendChild(scrollerContentNode);
     olectioContainerNode.appendChild(scrollerNode);
 
     nextChapterButton = document.createElement('button');
-    nextChapterButton.classList.add('rg-button-chapter-navigation', 'rg-next-chapter');
+    nextChapterButton.classList.add('olectio-button-chapter-navigation', 'olectio-next-chapter');
     olectioContainerNode.appendChild(nextChapterButton);
 
     prevChapterButton = document.createElement('button');
-    prevChapterButton.classList.add('rg-button-chapter-navigation', 'rg-prev-chapter');
+    prevChapterButton.classList.add('olectio-button-chapter-navigation', 'olectio-prev-chapter');
     olectioContainerNode.appendChild(prevChapterButton);
   }
 
@@ -108,7 +108,7 @@ const createBasicDOMElements = (state: State): void => {
   document.head.appendChild(dynamicStyleNode);
 
   const mainStylesheet = Array.from(document.styleSheets).find(
-    (s) => s.href?.indexOf('read.garden-viewer.css') !== -1,
+    (s) => s.href?.indexOf('olectio-viewer.css') !== -1,
   );
 
   document.body.appendChild(olectioContainerNode);

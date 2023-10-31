@@ -14,7 +14,7 @@ const getContainer = (
 
   const { order, width, height, slug, label } = info;
   const container = document.createElement('div');
-  container.classList.add('rg-fixed-content-container');
+  container.classList.add('olectio-fixed-content-container');
   container.style.width = `${width}px`;
   container.style.height = `${height - 1}px`;
   container.dataset.order = `${order}`;
@@ -68,7 +68,7 @@ const processFixedContents = async (
     container.style.setProperty('--page-top', `${top}px`);
     container.style.setProperty('--page-left', `${left}px`);
     if (unaffected.has(slug)) {
-      container.classList.add('rg-avoid-invert');
+      container.classList.add('olectio-avoid-invert');
     }
     containers.push(container);
     const position = state.scrollMode === 'horizontal' ? left : top;

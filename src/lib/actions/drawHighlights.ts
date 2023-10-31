@@ -21,7 +21,7 @@ const drawHighlights: ActionDispatcher<DrawHighlights> = async ({ action, state 
   let layer = state.highlightersLayers.get(action.key);
   if (!layer) {
     layer = document.createElement('div');
-    layer.classList.add('rg-highlights-layer');
+    layer.classList.add('olectio-highlights-layer');
     layer.setAttribute('style', `--highlighter-color: ${action.color}`);
     state.olectioViewerNode!.appendChild(layer);
     state.highlightersLayers.set(action.key, layer);

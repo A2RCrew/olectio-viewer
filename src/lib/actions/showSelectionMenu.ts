@@ -18,7 +18,7 @@ let menu: HTMLDivElement;
 const getMenu = (): HTMLDivElement => {
   if (!menu) {
     menu = document.createElement('div');
-    menu.classList.add('rg-selection-menu');
+    menu.classList.add('olectio-selection-menu');
   }
   removeAllChildren(menu);
   return menu;
@@ -34,16 +34,16 @@ const showSelectionMenu: ActionDispatcher<ShowSelectionMenu> = async ({ action, 
     const { left, top, arrowDown } = getMenuPositions(state, 70, key, currentSelection);
 
     const currentMenu = getMenu();
-    currentMenu.classList.add(`rg-${arrowDown ? 'bottom' : 'top'}-arrow`);
+    currentMenu.classList.add(`olectio-${arrowDown ? 'bottom' : 'top'}-arrow`);
     currentMenu.style.top = `${top}px`;
     currentMenu.style.left = `${left}px`;
 
     const wrapper = document.createElement('div');
-    wrapper.classList.add('rg-selection-menu-wrapper');
+    wrapper.classList.add('olectio-selection-menu-wrapper');
     currentMenu.appendChild(wrapper);
 
     const holder = document.createElement('div');
-    holder.classList.add('rg-selection-menu-holder');
+    holder.classList.add('olectio-selection-menu-holder');
     wrapper.appendChild(holder);
 
     const onMouseDown = (e: MouseEvent | TouchEvent): void => {
@@ -57,14 +57,14 @@ const showSelectionMenu: ActionDispatcher<ShowSelectionMenu> = async ({ action, 
 
     action.options.forEach((option) => {
       const button = document.createElement('button');
-      button.classList.add('rg-selection-option');
+      button.classList.add('olectio-selection-option');
       button.title = option.title;
       button.innerText = option.title;
       if (option.className) {
         button.classList.add(option.className);
       }
       if (option.selected) {
-        button.classList.add('rg-selected');
+        button.classList.add('olectio-selected');
       }
       if (option.style) {
         button.setAttribute('style', option.style);
@@ -102,14 +102,14 @@ const showSelectionMenu: ActionDispatcher<ShowSelectionMenu> = async ({ action, 
 
     if (action.copyOption) {
       const separator = document.createElement('span');
-      separator.classList.add('rg-separator');
+      separator.classList.add('olectio-separator');
       holder.appendChild(separator);
 
       const button = document.createElement('button');
       button.disabled = !!action.copyOption.disabled;
       button.title = action.copyOption.title;
       button.innerText = action.copyOption.title;
-      button.classList.add('rg-selection-option', 'rg-copy');
+      button.classList.add('olectio-selection-option', 'olectio-copy');
       if (action.copyOption.className) {
         button.classList.add(action.copyOption.className);
       }
@@ -136,13 +136,13 @@ const showSelectionMenu: ActionDispatcher<ShowSelectionMenu> = async ({ action, 
 
     if (action.key && action.deleteOption) {
       const separator = document.createElement('span');
-      separator.classList.add('rg-separator');
+      separator.classList.add('olectio-separator');
       holder.appendChild(separator);
 
       const button = document.createElement('button');
       button.title = action.deleteOption.title;
       button.innerText = action.deleteOption.title;
-      button.classList.add('rg-selection-option', 'rg-delete');
+      button.classList.add('olectio-selection-option', 'olectio-delete');
       if (action.deleteOption.className) {
         button.classList.add(action.deleteOption.className);
       }

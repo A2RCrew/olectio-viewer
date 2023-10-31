@@ -114,7 +114,7 @@ const recalculate = async (state: State): Promise<Partial<State>> => {
             if (lastPosition === null) {
               slugByPosition.set(position, page);
               const label = document.createElement('div');
-              label.classList.add('rg-label');
+              label.classList.add('olectio-label');
               const labelP = document.createElement('p');
               label.appendChild(labelP);
               labelP.innerText = page;
@@ -125,7 +125,7 @@ const recalculate = async (state: State): Promise<Partial<State>> => {
               while (labelPosition <= position) {
                 slugByPosition.set(labelPosition, page);
                 const label = document.createElement('div');
-                label.classList.add('rg-label');
+                label.classList.add('olectio-label');
                 const labelP = document.createElement('p');
                 label.appendChild(labelP);
                 labelP.innerText = page;
@@ -144,7 +144,7 @@ const recalculate = async (state: State): Promise<Partial<State>> => {
           for (let i = labelsCount + 1, l = totalColumns; i <= l; i++) {
             position += totalColumnWidth;
             const label = document.createElement('div');
-            label.classList.add('rg-label');
+            label.classList.add('olectio-label');
             const labelP = document.createElement('p');
             label.appendChild(labelP);
             labelP.innerText = lastLabel;
@@ -182,7 +182,7 @@ const recalculate = async (state: State): Promise<Partial<State>> => {
           for (let i = 0, l = siblings?.length || 0; i < l; i++) {
             const node = siblings?.item(i) as HTMLElement;
             if (node.innerText?.trim()) {
-              node.classList.add('rg-text-cursor');
+              node.classList.add('olectio-text-cursor');
             }
           }
         }
